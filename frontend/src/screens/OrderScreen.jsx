@@ -58,7 +58,7 @@ const OrderScreen = () => {
         refetch();
         toast.success("Payment Successful");
       } catch (err) {
-        toast.error(err?.data?.message || err.message);
+        toast.error(err?.data?.message || err.error);
       }
     });
   }
@@ -86,7 +86,7 @@ const OrderScreen = () => {
   return isLoading ? (
     <Loader />
   ) : error ? (
-    <Message variant="danger">{error?.data?.message || error.error}</Message>
+    <Message variant="danger">{error.data.message}</Message>
   ) : (
     <>
       <h2>Order{order._id}</h2>
